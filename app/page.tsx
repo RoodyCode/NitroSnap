@@ -1,4 +1,5 @@
 'use client'
+import { useToast } from '@/components/ui/use-toast'
 import { Button } from '@/components/ui/button'
 import { Fragment, useState } from 'react'
 import { Loader2, Rocket } from 'lucide-react'
@@ -14,6 +15,7 @@ import BoostOption from '@/components/BoostOption'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
 export default function Home() {
+  const { toast } = useToast()
   const [boost, setBoost] = useState<'initial' | 'started' | 'finished'>('initial')
   const [tempFiles, setTempFiles] = useState<FileEntry[]>([])
   const boostHandler = async () => {
@@ -31,7 +33,10 @@ export default function Home() {
       console.log(err)
     }
 
-    setTimeout(() => setBoost('finished'), 1000)
+    setTimeout(() => {
+      toast({ title: 'Performance boosted!', type: 'background', duration: 2000 })
+      setBoost('finished')
+    }, 1000)
   }
   return (
     <Fragment>
@@ -40,15 +45,16 @@ export default function Home() {
       </h1>
       <ScrollArea className="w-[65vw] grow">
         <div className="flex flex-col gap-2.5 ">
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
-          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption
+            property="delTempFiles"
+            title="Temp Files"
+            description="Delete all temporary files."
+          />
+          <BoostOption
+            property="delRecycleBin"
+            title="Empty Recycle Bin"
+            description="Permanently delete files from Recycle Bin."
+          />
         </div>
       </ScrollArea>
       <div>

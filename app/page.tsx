@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { Fragment, useState } from 'react'
-import { Loader2 } from 'lucide-react'
+import { Loader2, Rocket } from 'lucide-react'
 
 import {
   readDir,
@@ -10,12 +10,14 @@ import {
   removeFile,
   removeDir
 } from '@tauri-apps/api/fs'
+import BoostOption from '@/components/BoostOption'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export default function Home() {
-  const [boost, setBoost] = useState(false)
+  const [boost, setBoost] = useState<'initial' | 'started' | 'finished'>('initial')
   const [tempFiles, setTempFiles] = useState<FileEntry[]>([])
   const boostHandler = async () => {
-    setBoost(true)
+    setBoost('started')
 
     // Remove Temp Files
     setTempFiles(await readDir('', { dir: BaseDirectory.Temp }))
@@ -29,19 +31,35 @@ export default function Home() {
       console.log(err)
     }
 
-    setBoost(false)
+    setTimeout(() => setBoost('finished'), 1000)
   }
   return (
     <Fragment>
-      <h1 className="mb-10 text-center scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <h1 className="text-center scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         NitroSnap
       </h1>
+      <ScrollArea className="w-[65vw] grow">
+        <div className="flex flex-col gap-2.5 ">
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+          <BoostOption title="Temp Files" description="Delete all temporary files." />
+        </div>
+      </ScrollArea>
       <div>
-        <Button onClick={() => boostHandler()} size={'lg'}>
-          {!boost ? 'Boost' : <Loader2 className="h-4 w-4 animate-spin" />}
+        <Button disabled={boost === 'started'} onClick={() => boostHandler()} size={'lg'}>
+          {boost !== 'started' ? (
+            <Rocket className="mr-2 h-4 w-4" />
+          ) : (
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          )}
+          Boost
         </Button>
-
-        {tempFiles && <p className="mt-5">Temporary files deleted</p>}
       </div>
     </Fragment>
   )

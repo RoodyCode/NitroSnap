@@ -10,7 +10,7 @@ type BoostOptionProps = {
 }
 
 const BoostOption = ({ ...props }: BoostOptionProps) => {
-  const boostConfig = useBoostConfigStore(state => state[props.property])
+  const boostOption = useBoostConfigStore(state => state[props.property])
   return (
     <div className=" flex items-center space-x-4 rounded-md border p-4">
       <FileClock />
@@ -18,7 +18,7 @@ const BoostOption = ({ ...props }: BoostOptionProps) => {
         <p className="text-sm font-medium leading-none">{props.title}</p>
         <p className="text-sm text-muted-foreground">{props.description}</p>
       </div>
-      <Switch onCheckedChange={state => console.log(state)} checked={boostConfig} />
+      <Switch onCheckedChange={test => console.log(test)} checked={boostOption} />
     </div>
   )
 }

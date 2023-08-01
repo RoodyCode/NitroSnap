@@ -55,6 +55,11 @@ export default function Home() {
             title="Empty Recycle Bin"
             description="Permanently delete files from Recycle Bin."
           />
+          <BoostOption
+            property="delRecycleBin"
+            title="Empty Recycle Bin"
+            description="Permanently delete files from Recycle Bin."
+          />
         </div>
       </ScrollArea>
       <div>

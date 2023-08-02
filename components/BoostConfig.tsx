@@ -15,8 +15,8 @@ const BoostConfig = () => {
     {
       icon: FileCogIcon,
       property: 'delUpdateCache',
-      title: 'Windows Update Cache',
-      description: 'Clear update files'
+      title: 'Windows System',
+      description: 'Clean up Windows System'
     },
     {
       icon: Trash2Icon,

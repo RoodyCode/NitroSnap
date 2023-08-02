@@ -1,9 +1,13 @@
 import { create } from 'zustand'
-import BoostConfig from './types'
+import { BoostConfigAction, BoostConfigState } from './types'
 
-const useBoostConfigStore = create<BoostConfig>(set => ({
+const useBoostConfigStore = create<BoostConfigState & BoostConfigAction>(set => ({
+  switchOption: propName => {
+    set(currState => ({ [propName]: !currState[propName] }))
+  },
   delTempFiles: true,
-  delRecycleBin: false
+  delRecycleBin: false,
+  delUpdateCache: true
 }))
 
 export default useBoostConfigStore

@@ -11,8 +11,7 @@ import {
   removeFile,
   removeDir
 } from '@tauri-apps/api/fs'
-import BoostOption from '@/components/BoostOption'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import BoostConfig from '@/components/BoostConfig'
 
 export default function Home() {
   const { toast } = useToast()
@@ -43,25 +42,7 @@ export default function Home() {
       <h1 className="text-center scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         NitroSnap
       </h1>
-      <ScrollArea className="w-[65vw] grow">
-        <div className="flex flex-col gap-2.5 ">
-          <BoostOption
-            property="delTempFiles"
-            title="Temp Files"
-            description="Delete all temporary files."
-          />
-          <BoostOption
-            property="delRecycleBin"
-            title="Empty Recycle Bin"
-            description="Permanently delete files from Recycle Bin."
-          />
-          <BoostOption
-            property="delRecycleBin"
-            title="Empty Recycle Bin"
-            description="Permanently delete files from Recycle Bin."
-          />
-        </div>
-      </ScrollArea>
+      <BoostConfig />
       <div>
         <Button disabled={boost === 'started'} onClick={() => boostHandler()} size={'lg'}>
           {boost !== 'started' ? (

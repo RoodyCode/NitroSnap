@@ -13,6 +13,17 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      },
       "fs": {
         "all": false,
         "copyFile": false,
@@ -68,6 +79,7 @@
     },
     "windows": [
       {
+        "decorations": false,
         "center": true,
         "fullscreen": false,
         "height": 500,

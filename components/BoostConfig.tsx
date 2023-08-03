@@ -7,16 +7,16 @@ import { ScrollArea } from '@radix-ui/react-scroll-area'
 const BoostConfig = () => {
   const boostOptions: BoostOptionProps[] = [
     {
-      icon: FileClockIcon,
-      property: 'delTempFiles',
-      title: 'Temp Files',
-      description: 'Remove temporary files'
-    },
-    {
       icon: FileCogIcon,
       property: 'delUpdateCache',
       title: 'Windows System',
       description: 'Clean up Windows System'
+    },
+    {
+      icon: FileClockIcon,
+      property: 'delTempFiles',
+      title: 'Temp Files',
+      description: 'Remove temporary files'
     },
     {
       icon: Trash2Icon,

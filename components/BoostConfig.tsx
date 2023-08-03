@@ -2,7 +2,7 @@ import { FileClockIcon, FileCogIcon, Trash2Icon } from 'lucide-react'
 
 import BoostOption from './BoostOption'
 import { BoostOptionProps } from '@/lib/types'
-import { ScrollArea } from '@radix-ui/react-scroll-area'
+import { ScrollArea } from './ui/scroll-area'
 
 const BoostConfig = () => {
   const boostOptions: BoostOptionProps[] = [

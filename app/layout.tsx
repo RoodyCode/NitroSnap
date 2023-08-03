@@ -1,7 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-
 import { Toaster } from '@/components/ui/toaster'
 import TitleBar from '@/components/TitleBar'
 
@@ -18,6 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${poppins.className}`}>
         <TitleBar />
         <main className="flex flex-col gap-10 justify-between items-center h-[100vh] py-12 px-10">
+          <h1 className="text-center scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+            NitroSnap
+          </h1>
           {children}
         </main>
         <Toaster />

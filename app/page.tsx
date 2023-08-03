@@ -3,7 +3,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { Button } from '@/components/ui/button'
 import BoostConfig from '@/components/BoostConfig'
 import { useBoostStore } from '@/lib/store'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Loader2, Rocket } from 'lucide-react'
 
 export default function Home() {
@@ -16,9 +16,13 @@ export default function Home() {
   const boostHandler = async () => {
     setBoosting('started')
     setTimeout(() => {
-      toast({ title: 'Performance boosted!', type: 'background', duration: 2000 })
+      toast({
+        title: 'Performance boosted!',
+        type: 'background',
+        duration: 2500
+      })
       setBoosting('finished')
-    }, 1000)
+    }, 2000)
   }
 
   return (

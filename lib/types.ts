@@ -1,5 +1,13 @@
 import { LucideIcon } from 'lucide-react'
 
+export type BoostState = {
+  boosting: 'initial' | 'started' | 'finished'
+}
+
+export type BoostAction = {
+  setBoosting: (newState: BoostState['boosting']) => void
+}
+
 export type BoostOptionProps = {
   title: string
   description: string

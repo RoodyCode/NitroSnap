@@ -1,5 +1,5 @@
 import { Switch } from './ui/switch'
-import useBoostConfigStore from '@/lib/store'
+import { useBoostConfigStore } from '@/lib/store'
 import { BoostConfigState, BoostOptionProps } from '@/lib/types'
 
 const BoostOption = ({ ...props }: BoostOptionProps) => {

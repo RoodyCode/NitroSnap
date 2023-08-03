@@ -68,6 +68,7 @@
     },
     "windows": [
       {
+        "center": true,
         "fullscreen": false,
         "height": 500,
         "resizable": false,

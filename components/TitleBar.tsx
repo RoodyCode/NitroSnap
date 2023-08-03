@@ -2,22 +2,11 @@
 
 import { MinusIcon, SettingsIcon, XIcon } from 'lucide-react'
 import { Button } from './ui/button'
-import { useEffect, useState } from 'react'
-import { WebviewWindow } from '@tauri-apps/api/window'
 import Link from 'next/link'
+import { useApi } from '@/lib/hooks'
 
 const TitleBar = () => {
-  const [appWindow, setAppWindow] = useState<WebviewWindow | null>(null)
-
-  const setupAppWindow = async () => {
-    const appWindow = (await import('@tauri-apps/api/window')).appWindow
-    setAppWindow(appWindow)
-  }
-
-  useEffect(() => {
-    setupAppWindow()
-  }, [])
-
+  const appWindow = useApi()
   const onMinimize = () => appWindow?.minimize()
   const onClose = () => appWindow?.close()
   return (

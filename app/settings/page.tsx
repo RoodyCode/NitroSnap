@@ -1,4 +1,5 @@
 'use client'
+import AppVersion from '@/components/AppVersion'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { ChevronLeft } from 'lucide-react'

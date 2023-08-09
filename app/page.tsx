@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import BoostConfig from '@/components/BoostConfig'
 import { useBoostStore } from '@/lib/store'
 import { Fragment } from 'react'
-import { Loader2, Rocket } from 'lucide-react'
+import { Loader2, Rocket, RotateCwIcon } from 'lucide-react'
 
 export default function Home() {
   const { toast } = useToast()
@@ -14,6 +14,7 @@ export default function Home() {
   ])
 
   const boostHandler = async () => {
+    if (boosting == 'finished') return setBoosting('initial')
     setBoosting('started')
     setTimeout(() => {
       toast({
@@ -35,10 +36,12 @@ export default function Home() {
           onClick={() => boostHandler()}
           size={'lg'}
         >
-          {boosting !== 'started' ? (
+          {boosting == 'initial' ? (
             <Rocket className="mr-2 h-4 w-4" />
-          ) : (
+          ) : boosting == 'started' ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          ) : (
+            boosting == 'finished' && <RotateCwIcon className="mr-2 h-4 w-4" />
           )}
           Boost
         </Button>

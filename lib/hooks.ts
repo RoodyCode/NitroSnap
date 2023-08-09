@@ -5,7 +5,7 @@ export const useApi = () => {
   const [appWindow, setAppWindow] = useState<WebviewWindow | null>(null)
 
   const setupAppWindow = async () => {
-    const appWindow = (await import('@tauri-apps/api/window') ).appWindow
+    const appWindow = (await import('@tauri-apps/api/window')).appWindow
     setAppWindow(appWindow)
   }
 

@@ -1,7 +1,7 @@
 import { Switch } from './ui/switch'
 import { useBoostConfigStore, useBoostStore } from '@/lib/store'
 import { BoostOptionProps } from '@/lib/types'
-import { Loader2 } from 'lucide-react'
+import { CheckIcon, Loader2 } from 'lucide-react'
 
 const BoostOption = ({ ...props }: BoostOptionProps) => {
   const [boosting] = useBoostStore(state => [state.boosting])
@@ -16,13 +16,15 @@ const BoostOption = ({ ...props }: BoostOptionProps) => {
         <p className="text-sm font-medium leading-none">{props.title}</p>
         <p className="text-sm text-muted-foreground">{props.description}</p>
       </div>
-      {boosting !== 'started' ? (
+      {boosting == 'initial' ? (
         <Switch
           onCheckedChange={() => switchBoostOption(props.property)}
           checked={boostOptionState}
         />
-      ) : (
+      ) : boosting == 'started' ? (
         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      ) : (
+        boosting == 'finished' && <CheckIcon className="mr-2 h-4 w-4" />
       )}
     </div>
   )

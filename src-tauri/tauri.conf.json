@@ -7,7 +7,7 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "nitrosnap",
+    "productName": "NitroSnap",
     "version": "0.1.0"
   },
   "tauri": {

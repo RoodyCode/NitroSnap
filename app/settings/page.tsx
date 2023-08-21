@@ -9,7 +9,7 @@ import { Fragment } from 'react'
 export default function Home() {
   return (
     <Fragment>
-      <ScrollArea className="w-[65vw] grow"></ScrollArea>
+      <ScrollArea className="w-[70vw] grow"></ScrollArea>
       <Button asChild size={'lg'} variant={'secondary'}>
         <Link href="/">
           <ChevronLeft className="mr-2 h-4 w-4" /> Back

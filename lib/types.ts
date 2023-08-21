@@ -1,5 +1,9 @@
 import { LucideIcon } from 'lucide-react'
 
+export type ThemeState = {
+  theme: 'dark' | 'light'
+}
+
 export type BoostState = {
   boosting: 'initial' | 'started' | 'finished'
   operations?: {

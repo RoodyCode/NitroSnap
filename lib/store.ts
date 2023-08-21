@@ -1,5 +1,15 @@
 import { create } from 'zustand'
-import { BoostState, BoostAction, BoostConfigAction, BoostConfigState } from './types'
+import {
+  ThemeState,
+  BoostState,
+  BoostAction,
+  BoostConfigAction,
+  BoostConfigState
+} from './types'
+
+const useThemeStore = create<ThemeState>(set => ({
+  theme: 'dark'
+}))
 
 const useBoostStore = create<BoostState & BoostAction>(set => ({
   boosting: 'initial',
@@ -13,4 +23,4 @@ const useBoostConfigStore = create<BoostConfigState & BoostConfigAction>(set => 
   delUpdateCache: true
 }))
 
-export { useBoostStore, useBoostConfigStore }
+export { useThemeStore, useBoostStore, useBoostConfigStore }

@@ -26,7 +26,7 @@ const BoostConfig = () => {
     }
   ]
   return (
-    <ScrollArea className="w-[65vw] grow">
+    <ScrollArea className="w-[70vw] grow">
       <div className="flex flex-col gap-2.5 ">
         {boostOptions.map((option, i) => (
           <BoostOption

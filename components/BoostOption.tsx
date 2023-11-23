@@ -2,6 +2,7 @@ import { Switch } from './ui/switch'
 import { useBoostConfigStore, useBoostStore } from '@/lib/store'
 import { BoostOptionProps } from '@/lib/types'
 import { CheckIcon, Loader2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const BoostOption = ({ ...props }: BoostOptionProps) => {
   const [boosting] = useBoostStore(state => [state.boosting])
@@ -10,7 +11,12 @@ const BoostOption = ({ ...props }: BoostOptionProps) => {
     state.switchOption
   ])
   return (
-    <div className=" flex items-center space-x-4 rounded-md border p-4">
+    <motion.div
+      initial={{ y: 30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      className=" flex items-center space-x-4 rounded-md border p-4"
+    >
       <props.icon />
       <div className="flex-1 space-y-1">
         <p className="text-sm font-medium leading-none">{props.title}</p>
@@ -26,7 +32,7 @@ const BoostOption = ({ ...props }: BoostOptionProps) => {
       ) : (
         boosting == 'finished' && <CheckIcon className="mr-2 h-4 w-4" />
       )}
-    </div>
+    </motion.div>
   )
 }
 

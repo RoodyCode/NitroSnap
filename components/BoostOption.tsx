@@ -12,9 +12,9 @@ const BoostOption = ({ ...props }: BoostOptionProps) => {
   ])
   return (
     <motion.div
-      initial={{ y: 30, opacity: 0 }}
+      initial={{ y: 25, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.4 }}
       className=" flex items-center space-x-4 rounded-md border p-4"
     >
       <props.icon />
